@@ -1,5 +1,6 @@
 'use strict';
 const PAGE_ACCESS_TOKEN = "EAAHGdCAeol8BAKhJIPVc0UPlJ5GxbxcJMClkpSZCcsxVF7iXfB8C2oYDoI6OaZCaET4Rxgl3rDXVWPZBYwMuy21Of0yCPsuZC75JqMNRwdeXupCEGaLjOGyGEkjeB6Wq8ZBptQFHNi1H3j5f5pn8PbWiI238gtglecYvEl21CfZAYPM86hYGft";
+const GREETING = 'GREETING';
 
 const
   request = require('request'),
@@ -52,7 +53,7 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
 
   /** UPDATE YOUR VERIFY TOKEN **/
-  const VERIFY_TOKEN = process.env.VERIFICATION_TOKEN;
+  const VERIFY_TOKEN = "xbIYQS0qOShpozcc";
 
   // Parse params from the webhook verification request
   let mode = req.query['hub.mode'];
@@ -85,7 +86,7 @@ function handleGreetingPostback(sender_psid){
   request({
     url: `${FACEBOOK_GRAPH_API_BASE_URL}${sender_psid}`,
     qs: {
-      access_token: process.env.PAGE_ACCESS_TOKEN,
+      access_token: PAGE_ACCESS_TOKEN,
       fields: "first_name"
     },
     method: "GET"
