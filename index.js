@@ -79,6 +79,7 @@ app.get('/webhook', (req, res) => {
 
 function handleMessage(sender_psid, message) {
    handlePostback(sender_psid, {payload: GREETING});
+   console.log(GREETING)
     return;
 }
 
